@@ -110,6 +110,11 @@
       "icon": "Cross",
       "title": "Semana Santa and the Cofradia",
       "description": "During Holy Week, parish members bring their own saint images, set on decorated carrozas, to the Holy Wednesday and Good Friday processions."
+    },
+    {
+      "icon": "Church",
+      "title": "First San Isidro Shrine in the Philippines",
+      "description": "Home to the Philippines's first shrine dedicated to San Isidro Labrador."
     }
   ]
 }

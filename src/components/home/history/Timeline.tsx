@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
 import { useTranslation } from '../../../hooks/useTranslation';
 import { cn } from '../../../lib/utils';
 
@@ -19,28 +19,7 @@ function TimelineItem({
   isLast: boolean;
 }) {
   const { year, title, description } = event;
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useIntersectionObserver();
 
   return (
     <div

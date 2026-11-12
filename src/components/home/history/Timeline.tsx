@@ -71,7 +71,7 @@ function TimelineItem({
 export default function Timeline({ className }: { className?: string }) {
   const { t } = useTranslation('history');
 
-  const timeline = t('timeline1', { returnObjects: true }) as TimelineItem[];
+  const timeline = t('timeline', { returnObjects: true }) as TimelineItem[];
 
   return (
     <div className={cn('pl-2', className)}>

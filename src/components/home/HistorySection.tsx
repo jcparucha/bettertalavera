@@ -12,10 +12,10 @@ export default function HistorySection() {
   return (
     <Section>
       <Heading level={2}>{t('title')}</Heading>
-      {/* TODO verify the list of timeline and facts */}
-      <Timeline />
-      {/* TODO display the list of timeline and facts */}
-      <Facts />
+      <div className="grid lg:grid-cols-3 gap-4">
+        <Timeline className="lg:col-span-2" />
+        <Facts />
+      </div>
     </Section>
   );
 }

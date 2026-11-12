@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
+import { cn } from '../../../lib/utils';
 
 export interface TimelineItem {
   event: string;
@@ -67,13 +68,13 @@ function TimelineItem({
   );
 }
 
-export default function Timeline() {
+export default function Timeline({ className }: { className?: string }) {
   const { t } = useTranslation('history');
 
   const timeline = t('timeline1', { returnObjects: true }) as TimelineItem[];
 
   return (
-    <div className="pl-2">
+    <div className={cn('pl-2', className)}>
       {timeline.map((event, index) => (
         <TimelineItem
           key={event.event}

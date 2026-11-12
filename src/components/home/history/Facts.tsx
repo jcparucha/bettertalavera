@@ -1,6 +1,7 @@
-import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
+import { Card, CardContent } from '@bettergov/kapwa/card';
 import { useTranslation } from '../../../hooks/useTranslation';
 import LucideIcon from '../../ui/LucideIcon';
+import { Text } from '../../ui/Text';
 
 export interface FactItem {
   icon: string;
@@ -14,25 +15,24 @@ export default function Facts() {
   const facts = t('facts', { returnObjects: true }) as FactItem[];
 
   return (
-    <div>
-      <Card>
-        <CardHeader>{t('facts.0.title')}</CardHeader>
-        <CardContent>{t('facts.0.description')}</CardContent>
-      </Card>
-
-      {facts.map((fact, index) => {
-        return (
-          <div key={index} className="history-card">
-            <div className="history-card-icon">
+    <div className="space-y-4">
+      {facts.map((fact, index) => (
+        <Card hoverable className="border-t-4 border-primary-500" key={index}>
+          <CardContent className="h-full p-6 flex gap-4">
+            <div className="bg-primary-100 text-primary-600 p-3 rounded-md w-12 h-12">
               <LucideIcon icon={fact.icon} />
             </div>
-            <div className="history-card-content">
-              <h4>{fact.title}</h4>
-              <p>{fact.description}</p>
+            <div className="space-y-2 grow">
+              <h3 className="text-lg font-semibold text-gray-900 self-center">
+                {fact.title}
+              </h3>
+              <Text className="text-gray-800 sm:max-w-full">
+                {fact.description}
+              </Text>
             </div>
-          </div>
-        );
-      })}
+          </CardContent>
+        </Card>
+      ))}
     </div>
   );
 }

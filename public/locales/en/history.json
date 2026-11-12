@@ -1,0 +1,97 @@
+{
+  "title": "Brief History of Talavera",
+  "timeline": [
+    {
+      "event": "catuguian_origins",
+      "year": "Before 1852",
+      "title": "Catuguian, a Barrio of Cabanatuan",
+      "description": "Talavera began as \"Catuguian\", a barrio of Cabanatuan about 14 kilometers away. The name refers to tugue, an edible root crop, and the area had wide grasslands where many carabaos were raised."
+    },
+    {
+      "event": "nueva_ecija_provincehood",
+      "year": "1801–1848",
+      "title": "Nueva Ecija's Administrative Reorganization",
+      "description": "Nueva Ecija was organized as a district (corregimiento) in 1801 and became a regular province in 1848. Catuguian remained part of Cabanatuan and its population gradually increased."
+    },
+    {
+      "event": "town_founding",
+      "year": "1852",
+      "title": "Catuguian Becomes an Independent Town",
+      "description": "Catuguian was far from Cabanatuan and travel was hard, so its leading men pleaded for a separate town. The Augustinian parish priest recommended it, and a royal decree on November 12, 1852 approved it. Fr. Gragorio Crisostomo appointed the first officials, and the town hall was built on land owned by Eusebio Valenton."
+    },
+    {
+      "event": "renaming_to_talavera",
+      "year": "1853",
+      "title": "Renamed Talavera",
+      "description": "Residents wanted a name they could be proud of, like other Spanish-created towns. After they petitioned through the alcalde mayor of Nueva Ecija, the governor general approved the name \"Talavera of the Crown of the Princess\" in a decree dated February 17, 1853."
+    },
+    {
+      "event": "spanish_era_growth",
+      "year": "1853–1898",
+      "title": "Cattle, Schools and Parish",
+      "description": "Talavera's wide grasslands made it a major cattle supplier for the Manila market. A royal decree of December 20, 1863 set up separate primary schools for boys and girls in every pueblo, including Talavera. On November 20, 1872, a royal decree by King Amadeo I recognized the Parroquia de Talavera as an independent parish."
+    },
+    {
+      "event": "american_period",
+      "year": "1898–1941",
+      "title": "American Period: Occupation and Tenancy",
+      "description": "Talavera was occupied by American General Henry Lawton during the Philippine-American War. Under American rule, migration to Talavera increased as farming and cattle grazing grew and haciendas expanded. Tenants in San Ricardo, Bantug, Casili and Morcon struggled with landlordism and shared tenancy, and land ownership was rarely transferred to them."
+    },
+    {
+      "event": "boundary_changes",
+      "year": "1910–1937",
+      "title": "Territorial Adjustments",
+      "description": "Sitio Bacal was annexed to Talavera in 1910 and the barrio of Lomboy in 1914. In 1912, eight sitios (Kabisukulan, Rangayan, Rizal, Sineguelas, Pukoc, Agricultura, Pulong-Maragol and Mataas-na-Lupa) were organized into an independent municipality under Muñoz. In 1937, the barrio of San Francisco was annexed to Santo Domingo."
+    },
+    {
+      "event": "japanese_occupation_and_liberation",
+      "year": "1941–1945",
+      "title": "Japanese Occupation and Liberation",
+      "description": "The Imperial Japanese Army occupied Talavera in December 1941, and Squadron 8 of the Hukbalahap, with more than 100 members, was formed in Talavera. In 1945, San Pascual and Pinagpanaan became a defense line against the retreating Japanese army, and Barangay Sibul became a gathering point for 510 rescued prisoners of war from Camp Pangatian."
+    },
+    {
+      "event": "postwar_years",
+      "year": "1945–1955",
+      "title": "Postwar Years and Llanera",
+      "description": "After the war, Huk forces expanded in Nueva Ecija, and Talavera became part of what was known as Huklandia. In 1955, the barrios of General Luna, Morcon, Mabini, Ricarte, Casili and Picon, along with Plaridel and Bosque, were annexed to Llanera."
+    },
+    {
+      "event": "kasaysayan_ng_talavera",
+      "year": "1988–1992",
+      "title": "Kasaysayan ng Talavera",
+      "description": "Tomas L. Pagaduan wrote Kasaysayan ng Talavera, which tells the history and local stories of Talavera's 53 barangays, along with the customs and traditions of its people. The municipal government says he was the first to write down Talavera's history."
+    }
+  ],
+  "facts": [
+    {
+      "icon": "Landmark",
+      "title": "From Catuguian to Talavera",
+      "description": "Originally known as Catuguian, the town was renamed Talavera in 1853 following approval by the Spanish colonial government."
+    },
+    {
+      "icon": "Beef",
+      "title": "Manila's Cattle Supplier",
+      "description": "During the Spanish period, Talavera's extensive grasslands helped make it a major cattle supplier for the Manila market."
+    },
+    {
+      "icon": "Scale",
+      "title": "Dispute with Science City of Muñoz",
+      "description": "Science City of Muñoz once claimed four Talavera barangays (Bakal I, II, III and Matingkis), but the claim was set aside in 1999 and the barangays remained part of Talavera."
+    },
+    {
+      "icon": "Wheat",
+      "title": "Linggo ng Magsasaka",
+      "description": "A celebration honoring Talavera's farmers, held in connection with the town fiesta of San Isidro Labrador and featuring agricultural, cultural and community activities."
+    },
+    {
+      "icon": "Milk",
+      "title": "Gatas ng Kalabaw Festival",
+      "description": "A festival promoting carabao's milk as a source of nutrition and livelihood, featuring street dancing, carabao-themed events and milk-based products."
+    },
+    {
+      "icon": "Church",
+      "title": "First Diocesan Shrine of San Isidro Labrador",
+      "description": "Talavera is home to the country's first diocesan shrine dedicated to San Isidro Labrador, the patron saint of farmers."
+    }
+  ]
+}

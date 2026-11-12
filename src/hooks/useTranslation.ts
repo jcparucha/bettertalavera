@@ -1,7 +1,7 @@
 import { useTranslation as useI18nTranslation } from 'react-i18next';
 
-export const useTranslation = () => {
-  const { t, i18n } = useI18nTranslation();
+export const useTranslation = (ns?: 'common' | 'history') => {
+  const { t, i18n } = useI18nTranslation(ns);
 
   return {
     t,

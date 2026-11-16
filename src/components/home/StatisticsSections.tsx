@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@bettergov/kapwa/card';
+import { Link } from 'react-router';
 import { useTranslation } from '../../hooks/useTranslation';
 import { Heading } from '../ui/Heading';
 import LucideIcon from '../ui/LucideIcon';
@@ -24,7 +25,18 @@ export default function StatisticsSection() {
 
   return (
     <Section>
-      <Heading level={2}>{t('statistics.title')}</Heading>
+      <div className="flex justify-between items-center mb-4">
+        <Heading level={2} className="sm:mb-0">
+          {t('statistics.title')}
+        </Heading>
+        <Link
+          to="/statistics"
+          className="text-sm font-semibold text-primary-700 hover:text-primary-800 flex items-center gap-1 transition-colors"
+        >
+          {t('statistics.viewProfile')}
+          <LucideIcon icon="MoveRight" />
+        </Link>
+      </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard value={basicInfo.population} icon="Users" />
         <StatCard value={basicInfo.barangays} icon="MapPinned" />
@@ -43,10 +55,10 @@ function StatCard({
   icon: string;
 }) {
   return (
-    <Card className="border-t-4 border-primary-500">
+    <Card className="rounded-none border-0 border-t-4 border-primary-400 bg-gray-50">
       <CardContent className="h-full p-6 flex gap-4">
-        <div className="text-primary-600 p-3 rounded-md w-12 h-12">
-          <LucideIcon icon={icon} />
+        <div className="text-primary-600 p-3 rounded-md my-auto">
+          <LucideIcon size="lg" icon={icon} />
         </div>
         <div className="">
           <h3 className="text-2xl lg:text-xl font-semibold text-primary-600 self-center">

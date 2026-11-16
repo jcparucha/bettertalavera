@@ -21,6 +21,7 @@
   },
   "statistics": {
     "title": "Talavera at a Glance",
+    "viewProfile": "View Statistics",
     "basic": {
       "population": {
         "label": "Population",

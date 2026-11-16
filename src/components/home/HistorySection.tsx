@@ -7,8 +7,6 @@ import Timeline from './history/Timeline';
 export default function HistorySection() {
   const { t } = useTranslation('history');
 
-  console.log('TIMELINE', t('timeline.augustinian_missions'));
-
   return (
     <Section>
       <Heading level={2}>{t('title')}</Heading>

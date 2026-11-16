@@ -49,7 +49,7 @@ export default function Facts() {
   return (
     <div className="space-y-4">
       {facts.map((fact, index) => (
-        <FactItem fact={fact} index={index} />
+        <FactItem fact={fact} index={index} key={index} />
       ))}
     </div>
   );

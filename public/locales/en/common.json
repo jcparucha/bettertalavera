@@ -25,23 +25,23 @@
       "population": {
         "label": "Population",
         "value": 137444,
-        "note": "2024 Census (PSA)"
+        "description": "2024 Census (PSA)"
       },
       "barangays": {
         "label": "Barangays",
         "value": 53,
-        "note": "Administrative Units"
+        "description": "Administrative Units"
       },
       "classification": {
         "label": "Municipality",
         "value": "1st class",
-        "note": "Income Classification"
+        "description": "Income Classification"
       },
       "landArea": {
         "label": "Land Area",
         "value": 140.92,
         "unit": "km²",
-        "note": "Total Municipal Area"
+        "description": "Total Municipal Area"
       }
     }
   },

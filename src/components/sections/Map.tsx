@@ -18,10 +18,10 @@ const cityHallIcon = divIcon({
 
 export default function Map() {
   return (
-    <div className="relative h-96 w-full overflow-hidden rounded-lg">
+    <div className="relative h-96 w-full overflow-hidden rounded-lg z-0">
       <MapContainer
         center={talaveraCenter}
-        zoom={13}
+        zoom={15}
         scrollWheelZoom
         className="h-full w-full"
       >

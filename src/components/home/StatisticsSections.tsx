@@ -57,7 +57,7 @@ function StatCard({
   return (
     <Card className="rounded-none border-0 border-t-4 border-primary-400 bg-gray-50">
       <CardContent className="h-full p-6 flex gap-4">
-        <div className="text-primary-600 p-3 rounded-md my-auto">
+        <div className="text-primary-600 p-2 my-auto">
           <LucideIcon size="lg" icon={icon} />
         </div>
         <div className="">
@@ -71,7 +71,7 @@ function StatCard({
           <h5 className="text-md text-gray-900 font-bold sm:max-w-full">
             {label}
           </h5>
-          <Text size="sm" className="text-gray-600 italic sm:max-w-full">
+          <Text size="sm" className="text-gray-700 italic sm:max-w-full">
             {description}
           </Text>
         </div>

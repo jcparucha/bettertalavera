@@ -16,9 +16,9 @@ const cityHallIcon = divIcon({
   iconAnchor: [20, 48],
 });
 
-export default function Map() {
+export default function Map({ className }: { className?: string }) {
   return (
-    <div className="relative h-96 w-full overflow-hidden rounded-lg z-0">
+    <div className={`relative h-96 w-full overflow-hidden z-0 ${className}`}>
       <MapContainer
         center={talaveraCenter}
         zoom={15}

@@ -22,7 +22,7 @@ function FactItem({ fact, index }: { fact: FactItem; index: number }) {
         transition: `opacity 0.5s ease ${index * 80}ms, transform 0.5s ease ${index * 80}ms`,
       }}
     >
-      <Card className="border-t-4 border-primary-500" key={index} hoverable>
+      <Card className="" key={index} hoverable>
         <CardContent className="h-full p-6 flex gap-4">
           <div className="bg-primary-100 text-primary-600 p-3 rounded-md w-12 h-12">
             <LucideIcon icon={fact.icon} />

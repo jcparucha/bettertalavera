@@ -13,6 +13,14 @@ export function formatDate(date: Date): string {
   }).format(date);
 }
 
+export function formatTime(time: Date, timezone: string) {
+  return new Intl.DateTimeFormat('en-PH', {
+    hour: 'numeric',
+    minute: 'numeric',
+    timeZone: timezone,
+  }).format(time);
+}
+
 export function formatHour(time: Date, timezone: string) {
   return new Intl.DateTimeFormat('en-PH', {
     hour: 'numeric',

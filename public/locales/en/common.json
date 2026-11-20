@@ -19,6 +19,33 @@
     "title": "Government Activity",
     "description": "Stay updated with the latest government activities and announcements."
   },
+  "statistics": {
+    "title": "Talavera at a Glance",
+    "viewProfile": "View Statistics",
+    "basic": {
+      "population": {
+        "label": "Population",
+        "value": 137444,
+        "description": "2024 Census (PSA)"
+      },
+      "barangays": {
+        "label": "Barangays",
+        "value": 53,
+        "description": "Administrative Units"
+      },
+      "classification": {
+        "label": "Municipality",
+        "value": "1st class",
+        "description": "Income Classification"
+      },
+      "landArea": {
+        "label": "Land Area",
+        "value": 140.92,
+        "unit": "km²",
+        "description": "Total Municipal Area"
+      }
+    }
+  },
   "weather": {
     "title": "Weather Updates"
   },

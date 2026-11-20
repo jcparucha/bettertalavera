@@ -13,6 +13,21 @@ export function formatDate(date: Date): string {
   }).format(date);
 }
 
+export function formatTime(time: Date, timezone: string) {
+  return new Intl.DateTimeFormat('en-PH', {
+    hour: 'numeric',
+    minute: 'numeric',
+    timeZone: timezone,
+  }).format(time);
+}
+
+export function formatHour(time: Date, timezone: string) {
+  return new Intl.DateTimeFormat('en-PH', {
+    hour: 'numeric',
+    timeZone: timezone,
+  }).format(time);
+}
+
 export function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + '...';

@@ -24,7 +24,7 @@ function FactItem({ fact, index }: { fact: FactItem; index: number }) {
     >
       <Card className="" key={index} hoverable>
         <CardContent className="h-full p-6 flex gap-4">
-          <div className="bg-primary-100/50 text-primary-600 p-3 rounded-md w-12 h-12">
+          <div className="bg-primary-50 text-primary-600 p-3 rounded-md w-12 h-12">
             <LucideIcon icon={fact.icon} />
           </div>
           <div className="space-y-2 grow">

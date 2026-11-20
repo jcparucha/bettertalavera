@@ -42,7 +42,7 @@ const params = {
     'is_day',
     'precipitation_probability',
   ],
-  forecast_days: 1,
+  forecast_days: 2,
   temperature_unit: 'celsius',
   wind_speed_unit: 'kmh',
 };
@@ -61,7 +61,6 @@ export async function fetchWeatherData(
   const current = response.current();
   const hourly = response.hourly();
   const timezone = response.timezone();
-  const utcOffsetSeconds = response.utcOffsetSeconds();
 
   if (!current || !hourly || !timezone) {
     throw new Error('Open-Meteo returned incomplete weather data.');
@@ -81,8 +80,7 @@ export async function fetchWeatherData(
       time: createTimeRange(
         Number(hourly.time()),
         Number(hourly.timeEnd()),
-        hourly.interval(),
-        utcOffsetSeconds
+        hourly.interval()
       ),
       temperature: Array.from(hourly.variables(0)?.valuesArray() ?? []),
       weatherCode: Array.from(hourly.variables(1)?.valuesArray() ?? []),
@@ -99,8 +97,7 @@ export async function fetchWeatherData(
 function createTimeRange(
   start: number,
   end: number,
-  interval: number,
-  utcOffsetSeconds: number
+  interval: number
 ) {
   if (
     !Number.isFinite(start) ||
@@ -116,7 +113,7 @@ function createTimeRange(
 
   return Array.from(
     { length },
-    (_, index) => new Date((start + index * interval + utcOffsetSeconds) * 1000)
+    (_, index) => new Date((start + index * interval) * 1000)
   );
 }
 

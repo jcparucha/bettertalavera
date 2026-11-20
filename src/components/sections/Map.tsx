@@ -43,16 +43,15 @@ export default function Map({ className }: { className?: string }) {
 function CityHallCard({ openStreetMapUrl }: { openStreetMapUrl: string }) {
   return (
     <div className="absolute bottom-4 left-4 z-1000 w-[calc(100%-2rem)] max-w-sm">
-      <Card className="bg-white shadow-lg">
-        <CardContent className="flex gap-4 p-4">
+      <Card className="bg-white/80 shadow-lg">
+        <CardContent className="flex gap-4 md:p-4">
           <div className="text-primary-600 p-2 my-auto">
             <LucideIcon size="lg" icon="MapPinned" />
           </div>
           <div className="min-w-0">
             <h2 className="font-bold text-gray-900">Visit City Hall</h2>
             <p className="mt-1 text-sm text-gray-700">
-              Talavera Municipal Hall, Quezon Street, Pag-asa District,
-              Talavera, Philippines, 3114
+              Talavera Municipal Hall, Quezon Street, Pag-asa District
             </p>
             <a
               href={openStreetMapUrl}

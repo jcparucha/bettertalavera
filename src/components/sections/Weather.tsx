@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@bettergov/kapwa/card';
+import { formatDistanceToNowStrict } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { formatHour } from '../../lib/utils';
 import {
@@ -53,7 +54,7 @@ export default function Weather({ className }: { className?: string }) {
     );
   }
 
-  const { current, hourly } = weather;
+  const { current, hourly, timezone } = weather;
 
   const currentCondition = describeWeather(current.weatherCode, current.isDay);
 
@@ -88,63 +89,69 @@ export default function Weather({ className }: { className?: string }) {
       };
     });
 
-  const updatedAt = current.time.toLocaleTimeString('en-PH', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
   return (
-    <div className={`h-full ${className}`}>
+    <div
+      className={`h-full bg-linear-to-tl from-primary-50/25 to-white ${className}`}
+    >
       <div className="flex h-full flex-col p-5">
-        {/* <h2 className="text-lg font-semibold text-gray-900">
-          Talavera Weather
-        </h2> */}
-        {/* <Heading level={6}>Talavera Weather</Heading> */}
         <div className="flex justify-between text-gray-600">
-          <p className="text-sm flex gap-1 items-center">
-            <span className="text-primary-400">
-              <LucideIcon size="sm" icon="MapPin" />
-            </span>
-            Talavera, Nueva Ecija
+          <p className="text-sm font-semibold">Weather Forecast</p>
+          <p className="text-sm">
+            Updated{' '}
+            {formatDistanceToNowStrict(current.time, { addSuffix: true })}
           </p>
-          <p className="text-sm ">Updated at&nbsp;{updatedAt}</p>
         </div>
 
-        <div className="mt-3 flex items-center justify-between gap-4">
+        <div className="flex gap-2 my-auto p-4">
           <div>
-            {/* <p className="text-sm text-gray-600">Current conditions</p> */}
-            <p className="text-4xl font-semibold text-primary-600">
+            <h1 className="text-6xl md:text-5xl font-semibold text-primary-600">
               {Math.round(weather.current.temperature)}°C
+            </h1>
+            <p className="text-lg md:text-md text-gray-700 font-medium">
+              {currentCondition.label}
             </p>
-            <p className="text-sm text-gray-700">{currentCondition.label}</p>
+            <p className="text-md md:text-sm text-gray-700">
+              Feels like&nbsp;{Math.round(current.apparentTemperature)}°C
+            </p>
           </div>
           <div className="text-primary-600" aria-hidden="true">
             <LucideIcon icon={currentCondition.icon} size="lg" />
           </div>
         </div>
 
-        <dl className="mt-4 grid grid-cols-3 gap-3 text-sm">
-          <div className="rounded-md shadow bg-gray-50 p-3">
-            <dt className="text-gray-600">Rain chance</dt>
-            <dd className="mt-1 font-semibold text-gray-900">
+        <div className="flex justify-evenly border-t border-primary-200 py-2">
+          <div
+            className="flex items-center gap-1 text-gray-600 cursor-pointer"
+            title="Rain chance"
+          >
+            <p className="flex text-sm text-gray-600">
+              <span className="text-primary-400 mr-1">
+                <LucideIcon size="sm" icon="Droplets" />
+              </span>
+              <span>Rain Chance:</span>
+            </p>
+            <span className="text-sm font-semibold text-gray-900">
               {rainChance === null ? '—' : `${rainChance}%`}
-            </dd>
+            </span>
           </div>
-          <div className="rounded-md bg-gray-50 p-3">
-            <dt className="text-gray-600">Wind</dt>
-            <dd className="mt-1 font-semibold text-gray-900">
-              {Math.round(current.windSpeed)} km/h
-            </dd>
-          </div>
-          <div className="rounded-md bg-gray-50 p-3">
-            <dt className="text-gray-600">Feels like</dt>
-            <dd className="mt-1 font-semibold text-gray-900">
-              {Math.round(current.apparentTemperature)}°C
-            </dd>
-          </div>
-        </dl>
+          <div
+            className="flex items-center gap-1 text-gray-600 cursor-pointer"
+            title="Wind speed"
+          >
+            <p className="flex text-sm text-gray-600">
+              <span className="text-primary-400 mr-1">
+                <LucideIcon size="sm" icon="Wind" />
+              </span>
+              <span>Wind:</span>
+            </p>
 
-        <div className="mt-5 border-t border-gray-300 pt-4">
+            <span className="text-sm font-semibold text-gray-900">
+              {Math.round(current.windSpeed)} km/h
+            </span>
+          </div>
+        </div>
+
+        <div className="border-t border-primary-200 pt-4">
           <h3 className="mb-3 text-sm font-semibold text-gray-900">
             Next 5 hours
           </h3>
@@ -155,19 +162,19 @@ export default function Weather({ className }: { className?: string }) {
               return (
                 <div
                   key={time.toISOString()}
-                  className="rounded-md bg-gray-50 px-1 py-2 text-center"
+                  className="rounded-md bg-primary-50/25 px-1 py-2 text-center"
                 >
-                  <p className="text-xs font-medium text-gray-700">
-                    {formatHour(time, weather.timezone)}
+                  <p className="text-md font-semibold text-gray-900">
+                    {Math.round(temperature)}°
                   </p>
                   <div
                     className="my-1 flex justify-center text-primary-600"
                     aria-label={condition.label}
                   >
-                    <LucideIcon icon={condition.icon} size="sm" />
+                    <LucideIcon icon={condition.icon} size="md" />
                   </div>
-                  <p className="text-sm font-semibold text-gray-900">
-                    {Math.round(temperature)}°
+                  <p className="text-sm font-medium text-gray-700">
+                    {formatHour(time, timezone)}
                   </p>
                 </div>
               );

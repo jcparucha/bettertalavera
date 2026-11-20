@@ -30,6 +30,7 @@
     "@bettergov/kapwa": "^1.2.4",
     "@tailwindcss/typography": "^0.5.18",
     "clsx": "^2.1.1",
+    "date-fns": "^4.4.0",
     "dotenv": "^17.2.2",
     "i18next": "^26.3.6",
     "i18next-browser-languagedetector": "^8.2.0",

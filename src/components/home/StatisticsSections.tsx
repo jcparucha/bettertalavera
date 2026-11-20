@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Link } from 'react-router';
 import { useTranslation } from '../../hooks/useTranslation';
+import type { IconName } from '../../lib/iconRegistry';
 import { Heading } from '../ui/Heading';
 import LucideIcon from '../ui/LucideIcon';
 import Section from '../ui/Section';
@@ -25,8 +26,8 @@ export default function StatisticsSection() {
 
   return (
     <Section>
-      <div className="flex justify-between items-center mb-4">
-        <Heading level={2} className="sm:mb-0">
+      <div className="flex gap-1 flex-col md:flex-row md:justify-between items-center mb-4">
+        <Heading level={2} className="mb-0 md:mb-4">
           {t('statistics.title')}
         </Heading>
         <Link
@@ -52,7 +53,7 @@ function StatCard({
   icon,
 }: {
   value: StatBasicItem;
-  icon: string;
+  icon: IconName;
 }) {
   return (
     <Card className="rounded-none border-0 border-t-4 border-primary-400 bg-gray-50">

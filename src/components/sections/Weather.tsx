@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { formatDistanceToNowStrict } from 'date-fns';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { formatHour } from '../../lib/utils';
 import {
   describeWeather,
@@ -10,6 +10,8 @@ import {
 import LucideIcon from '../ui/LucideIcon';
 
 export default function Weather({ className }: { className?: string }) {
+  const weatherHeadingId = useId();
+  const forecastHeadingId = useId();
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -90,28 +92,37 @@ export default function Weather({ className }: { className?: string }) {
     });
 
   return (
-    <div
+    <section
+      aria-labelledby={weatherHeadingId}
       className={`h-full bg-linear-to-tl from-primary-50/25 to-white ${className}`}
     >
       <div className="flex h-full flex-col p-5">
-        <div className="flex justify-between text-gray-600">
-          <p className="text-sm font-semibold">Weather Forecast</p>
+        <header className="flex justify-between text-gray-600">
+          <h2 id={weatherHeadingId} className="text-sm font-semibold">
+            Weather forecast
+          </h2>
           <p className="text-sm">
-            Updated{' '}
-            {formatDistanceToNowStrict(current.time, { addSuffix: true })}
+            <time dateTime={current.time.toISOString()}>
+              Updated{' '}
+              {formatDistanceToNowStrict(current.time, { addSuffix: true })}
+            </time>
           </p>
-        </div>
+        </header>
 
         <div className="flex gap-2 my-auto p-4">
           <div>
-            <h1 className="text-6xl md:text-5xl font-semibold text-primary-600">
-              {Math.round(weather.current.temperature)}°C
-            </h1>
+            <p className="text-6xl md:text-5xl font-semibold text-primary-600">
+              {Math.round(current.temperature)}
+              <span aria-hidden="true">°C</span>
+              <span className="sr-only"> degrees Celsius</span>
+            </p>
             <p className="text-lg md:text-md text-gray-700 font-medium">
               {currentCondition.label}
             </p>
             <p className="text-md md:text-sm text-gray-700">
-              Feels like&nbsp;{Math.round(current.apparentTemperature)}°C
+              Feels like&nbsp;{Math.round(current.apparentTemperature)}
+              <span aria-hidden="true">°C</span>
+              <span className="sr-only"> degrees Celsius</span>
             </p>
           </div>
           <div className="text-primary-600" aria-hidden="true">
@@ -119,70 +130,81 @@ export default function Weather({ className }: { className?: string }) {
           </div>
         </div>
 
-        <div className="flex justify-evenly border-t border-primary-200 py-2">
-          <div
-            className="flex items-center gap-1 text-gray-600 cursor-pointer"
-            title="Rain chance"
-          >
-            <p className="flex text-sm text-gray-600">
-              <span className="text-primary-400 mr-1">
+        <dl className="flex justify-evenly border-t border-primary-200 py-2">
+          <div className="flex items-center gap-1 text-gray-600">
+            <dt className="flex text-sm text-gray-600">
+              <span aria-hidden="true" className="text-primary-400 mr-1">
                 <LucideIcon size="sm" icon="Droplets" />
               </span>
-              <span>Rain Chance:</span>
-            </p>
-            <span className="text-sm font-semibold text-gray-900">
-              {rainChance === null ? '—' : `${rainChance}%`}
-            </span>
+              Rain chance
+            </dt>
+            <dd className="text-sm font-semibold text-gray-900">
+              {rainChance === null ? (
+                <>
+                  <span aria-hidden="true">—</span>
+                  <span className="sr-only">Unavailable</span>
+                </>
+              ) : (
+                `${rainChance}%`
+              )}
+            </dd>
           </div>
-          <div
-            className="flex items-center gap-1 text-gray-600 cursor-pointer"
-            title="Wind speed"
-          >
-            <p className="flex text-sm text-gray-600">
-              <span className="text-primary-400 mr-1">
+          <div className="flex items-center gap-1 text-gray-600">
+            <dt className="flex text-sm text-gray-600">
+              <span aria-hidden="true" className="text-primary-400 mr-1">
                 <LucideIcon size="sm" icon="Wind" />
               </span>
-              <span>Wind:</span>
-            </p>
-
-            <span className="text-sm font-semibold text-gray-900">
+              Wind
+            </dt>
+            <dd className="text-sm font-semibold text-gray-900">
               {Math.round(current.windSpeed)} km/h
-            </span>
+            </dd>
           </div>
-        </div>
+        </dl>
 
         <div className="border-t border-primary-200 pt-4">
-          <h3 className="mb-3 text-sm font-semibold text-gray-900">
+          <h3
+            id={forecastHeadingId}
+            className="mb-3 text-sm font-semibold text-gray-900"
+          >
             Next 5 hours
           </h3>
-          <div className="grid grid-cols-5 gap-2">
+          <ul
+            aria-labelledby={forecastHeadingId}
+            className="grid grid-cols-5 gap-2"
+          >
             {forecast.map(({ time, temperature, code, isDay }) => {
               const condition = describeWeather(code, isDay);
 
               return (
-                <div
+                <li
                   key={time.toISOString()}
                   className="rounded-md bg-primary-50/25 px-1 py-2 text-center"
                 >
                   <p className="text-md font-semibold text-gray-900">
-                    {Math.round(temperature)}°
+                    {Math.round(temperature)}
+                    <span aria-hidden="true">°</span>
+                    <span className="sr-only"> degrees Celsius</span>
                   </p>
+                  <span className="sr-only">{condition.label}</span>
                   <div
+                    aria-hidden="true"
                     className="my-1 flex justify-center text-primary-600"
-                    aria-label={condition.label}
                   >
                     <LucideIcon icon={condition.icon} size="md" />
                   </div>
                   <p className="text-sm font-medium text-gray-700">
-                    {formatHour(time, timezone)}
+                    <time dateTime={time.toISOString()}>
+                      {formatHour(time, timezone)}
+                    </time>
                   </p>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -230,7 +252,7 @@ function WeatherUnavailable({
         <button
           type="button"
           onClick={onClick}
-          className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
+          className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-900"
         >
           Try again
         </button>

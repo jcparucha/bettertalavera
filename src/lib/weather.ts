@@ -1,4 +1,5 @@
 import { fetchWeatherApi } from 'openmeteo';
+import type { IconName } from './iconRegistry';
 
 export interface WeatherData {
   timezone: string;
@@ -94,11 +95,7 @@ export async function fetchWeatherData(
   };
 }
 
-function createTimeRange(
-  start: number,
-  end: number,
-  interval: number
-) {
+function createTimeRange(start: number, end: number, interval: number) {
   if (
     !Number.isFinite(start) ||
     !Number.isFinite(end) ||
@@ -119,7 +116,7 @@ function createTimeRange(
 
 interface WeatherCondition {
   label: string;
-  icon: string;
+  icon: IconName;
 }
 
 export function describeWeather(

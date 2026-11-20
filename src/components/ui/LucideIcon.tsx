@@ -1,7 +1,7 @@
-import * as LucideIcons from 'lucide-react';
+import { icons, type IconName } from '../../lib/iconRegistry';
 
 interface IconProps {
-  icon?: string;
+  icon?: IconName;
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   className?: string;
 }
@@ -17,9 +17,7 @@ const iconSizes = {
 export default function LucideIcon({ icon, size, className }: IconProps) {
   if (!icon) return;
 
-  const Icon = LucideIcons[
-    icon as keyof typeof LucideIcons
-  ] as React.ComponentType<{ className: string }>;
+  const Icon = icons[icon];
 
   const iconSize = size ? iconSizes[size] : iconSizes.md;
 

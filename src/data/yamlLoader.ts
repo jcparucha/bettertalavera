@@ -1,4 +1,5 @@
 import * as yaml from 'js-yaml';
+import type { IconName } from '../lib/iconRegistry';
 
 // Type definitions for the services data
 export interface Subcategory {
@@ -11,7 +12,7 @@ export interface Category {
   category: string;
   slug: string;
   description: string;
-  icon: string;
+  icon: IconName;
   subcategories?: Subcategory[]; // Keep for backward compatibility
 }
 

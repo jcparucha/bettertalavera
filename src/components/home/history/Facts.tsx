@@ -1,11 +1,12 @@
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
 import { useTranslation } from '../../../hooks/useTranslation';
+import type { IconName } from '../../../lib/iconRegistry';
 import LucideIcon from '../../ui/LucideIcon';
 import { Text } from '../../ui/Text';
 
 export interface FactItem {
-  icon: string;
+  icon: IconName;
   title: string;
   description: string;
 }

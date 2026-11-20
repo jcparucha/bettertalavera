@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Link } from 'react-router';
 import { useTranslation } from '../../hooks/useTranslation';
+import type { IconName } from '../../lib/iconRegistry';
 import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import { Text } from '../ui/Text';
@@ -18,7 +19,7 @@ interface Category {
   slug: string;
   subcategories: Subcategory[];
   description: string;
-  icon: string;
+  icon: IconName;
 }
 
 interface GovernmentActivitySectionProps {
